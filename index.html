@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="output.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  
+    <title>Portfolio</title>
+
+    <style>
+ section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .radial-bg {
+      position: absolute;
+  width: 30%;
+  height: 30%;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.1);
+  filter: blur(80px);
+  opacity: 0; /* Initially hidden */
+  pointer-events: none; /* Ignore clicks */
+    }
+
+    .ripple {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: screen; /* Blends ripple with background */
+  transform: translate(-50%, -50%) scale(1); /* Center and initial scale */
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+      <nav class="p-4 fixed w-full top-0 border-2 border-teal-400 rounded-xl z-50 dark:text-teal-400 bg-white bg-opacity-40 backdrop-filter backdrop-blur-3xl">
+        <div class="flex justify-between items-center">
+          <!-- Hamburger Icon (hidden on medium and larger screens) -->
+          <button
+            id="hamburger-toggle"
+            class="text-teal-400 dark:text-white block md:hidden focus:outline-none"
+          >
+            <span class="material-symbols-outlined text-3xl">menu</span>
+          </button>
+        </div>
+      
+        <!-- Navigation Links (hidden on small screens, visible on medium and larger screens) -->
+        <ul
+          id="menu"
+          class="flex-col md:flex-row justify-evenly text-lg  flex"
+        >
+          <li><a href="#home" class="focus:text-teal-400">Home</a></li>
+          <li><a href="#about" class="focus:text-teal-400">About</a></li>
+          <li><a href="#skills" class="focus:text-teal-400">Skills</a></li>
+          <li><a href="#projects" class="focus:text-teal-400">Projects</a></li>
+          <li class="text-teal-400 dark:text-white">
+            <a
+              href="https://docs.google.com/document/d/1InxEJP7wjeTp1d8TVyw65Pa_oHj0OUc3/edit?usp=sharing&ouid=100852896172975315804&rtpof=true&sd=true"
+              target="_blank"
+              >Resume</a
+            >
+          </li>
+          <li><a href="#contact" class="focus:text-teal-400">Contact</a></li>
+          <li>
+            <button id="theme-toggle" class="material-symbols-outlined">
+              dark_mode
+            </button>
+          </li>
+        </ul>
+      </nav>
+      
+      
+      
+</header>
+
+<div class="h-screen flex flex-col items-center justify-center bg-customGradientLight bg-cover dark:bg-customGradientDark dark:text-white overflow: hidden; cursor-none" id="home">
+    <p class="text-xl font-serif">Hola amigos, I'm <span class="text-purple-600">Chaitanya Behl</span></p>
+    <p class=" text-5xl md:text-7xl font-extrabold text-center ">Enthusiastic web developer <br> eager to transform ideas into <br> impactful and user-friendly digital experiences.</p>
+    <div id="icon-bar" class="flex gap-x-4 p-3 md:p-6">
+    <a href="https://github.com/chaitanya-cloud08"><img src="/assets/github-light.png" alt="" id="github"></a>
+    <a href="https://www.linkedin.com/in/chaitanya-behl-831932294/"><img src="/assets/linkedin-light.png" alt="" id="linkedin"></a>
+    <a href="mailto:chaitanyabehlforwork@gmail.com"><img src="/assets/mail-light.png" alt="" id="mail"></a>
+    </div>
+</div>
+
+<section class=" section flex flex-col md:flex-row items-center justify-between h-screen dark:bg-black dark:text-teal-400" id="about">
+<img src="/assets/me.jpg" alt="My Photo"  class="rounded-3xl mx-8 md:my-40 my-28 z-1 h-2/4 w-3/4 ">
+<div class="flex flex-col p-4 -mt-10 ">
+<h1 class="text-3xl md:text-4xl font-serif font-extrabold z-1">Hey! I am <span class="text-teal-400 dark:text-white">Chaitanya Behl</span></h1>
+<p class="font-serif text-lg md:text-2xl z-1">I am a web developer with a passion for crafting user-centric digital experiences. Currently pursuing a BTech in IT at GGSIPU, I specialize in creating sleek, responsive websites. Explore my projects and let's connect to bring your ideas to life!</p>
+</div>
+</section>
+
+<section id="skills" class="section md:h-screen  dark:bg-black dark:text-white">
+<h1 class="text-3xl md:text-5xl font-serif font-bold py-20 px-10 md:p-20 dark:text-teal-400 z-1">My Skills</h1>
+<div class="flex  md:flex-row flex-col h-3/4 w-full mt-auto z-1">
+    <div id="skill-txt" class="md:h-full md:w-2/5 w-full h-2/5 -mt-20 md:-mt-10 ">
+        <p class=" text-md md:text-2xl font-mono font-bold p-10 md:p-20 -mt-8 md:-mt-14 ">As a developer, I bring a solid skill set and a continuous drive to learn and grow. While I may not know everything, I have a strong foundation in development and an aptitude for quickly grasping new concepts. I rely on documentation to ensure I’m following the best practices and applying them effectively. My focus is always on delivering high-quality results within deadlines, making sure I meet both the project’s needs and expectations.</p>
+    </div>
+    <div id="skill-carousel" class=" -ml-6 float-right w-full h-3/5 md:h-full md:w-3/5 ">
+        <div class="relative bg-gray-200 p-8 rounded-2xl m-16 mt-2 w-5/6 dark:bg-slate-500 ">
+            
+            <div class="carousel relative overflow-hidden w-full h-64">
+             
+              <div class="slides flex transition-transform duration-500 ease-in-out">
+               
+                <div class="min-w-full flex flex-col justify-center">
+                  <h1 class="text-2xl md:text-3xl font-bold mb-4 border-2 border-white rounded-xl p-4  bg-white dark:border-slate-900 dark:bg-slate-900 dark:text-teal-400">Web Development</h1>
+                  <p class="text-md md:text-lg font-mono ">I specialize in creating responsive and user-friendly web applications using HTML, CSS, JavaScript, PHP, and jQuery. I leverage frameworks like Bootstrap, Tailwind CSS, and React.js to craft visually appealing and efficient designs. My expertise also extends to backend development with Node.js, Express, EJS, and REST APIs, enabling dynamic and scalable solutions.</p>
+                </div> 
+                <div class="min-w-full flex flex-col  justify-center">
+                  <h1 class="text-2xl md:text-3xl font-bold mb-4 border-2 border-white rounded-xl -mt-24 p-4 md:-mt-14 bg-white dark:border-slate-900 dark:bg-slate-900 dark:text-teal-400">Programming</h1>
+                  <p class=" text-md md:text-lg font-mono ">I'm proficient in programming with C, C++, and have a basic understanding of Java.I also have a solid grasp of core DBMS fundamentals,enabling me to design and manage databases effectively.</p>
+                </div>
+                
+                <div class="min-w-full flex flex-col justify-center">
+                  <h1 class="text-2xl md:text-3xl font-bold mb-4 border-2 border-white rounded-xl -mt-32 p-4 md:-mt-16 bg-white dark:border-slate-900 dark:bg-slate-900 dark:text-teal-400">Other tools</h1>
+                  <p class="text-md md:text-lg font-mono">Well-versed in version control with Git and GitHub,adept at crafting and consuming RESTful APIs, and fluent in coding within the VS Code environment.</p>
+                </div>
+              </div>
+            </div>
+          
+            <div class="dots flex justify-center mt-4 space-x-2">
+              <button class="dot w-4 h-4 bg-gray-400 rounded-full focus:outline-none"></button>
+              <button class="dot w-4 h-4 bg-gray-400 rounded-full focus:outline-none"></button>
+              <button class="dot w-4 h-4 bg-gray-400 rounded-full focus:outline-none"></button>
+            </div>
+          </div>
+    </div>
+</div>
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<section id="projects" class=" section p-20 dark:bg-black dark:text-white">
+<h1 class="text-3xl md:text-5xl font-serif font-bold dark:text-teal-400 ">My Projects</h1>
+<p class="mt-6 text-md md:text-xl font-mono font-bold">Here are some of the projects I've developed in the field of Software Development. These projects reflect my hands-on experience and technical skills, and I'm continually improving with each one. All of them are available on GitHub, where you can explore the code, see the progress I've made, and understand the approach I’ve taken in solving various challenges. Feel free to check them out and dive into the details!</p>
+<div id="project-container" class="w-full h-3/4 mt-4 flex flex-col ">
+<!-- <div class="flex flex-col h-full w-1/2  p-10" id="pro-txt">
+    <div class="row flex">
+    <h1 class="text-2xl md:text-4xl text-bold font-serif text-teal-400">VisionFlow</h1>
+    <button class="rounded-xl text-xl font-bold font-mono px-3 py-2 ml-6 border-2 border-teal-400 hover:bg-teal-400" onclick="VisionFlow()">GitHub</button>
+</div>
+     <p class=" text-lg md:text-xl text-bold font-mono mt-4">A productivity-driven website designed to help users stay organized, set goals, and manage their time effectively. It provides a clean and intuitive interface with tools for task management, goal tracking, and reminders. The goal of VisionFlow is to motivate users to stay on track, improve their focus, and boost overall productivity by offering simple, yet powerful features tailored to everyday use. Whether it’s for personal tasks or long-term projects, VisionFlow helps users break down their goals and visualize their progress.</p>
+     <div class=" flex">
+     <h1 class="text-2xl md:text-4xl text-bold font-serif text-teal-400 mt-10">MedAccess</h1>
+<button class="mt-10 rounded-xl text-xl font-bold font-mono px-3 py-2 ml-6 border-2 border-teal-400 hover:bg-teal-400" onclick="MedAccess()">GitHub</button>
+    </div>
+     <p class="text-lg md:text-xl text-bold font-mono mt-4">A healthcare appointment booking system built using Node.js, Express, EJS, and MySQL. It allows patients to book appointments, view their previous data, and manage appointments securely. The system includes features for both patients and doctors: patients can log in to view and book appointments, while doctors can access patient details once logged in. The admin portal allows for centralized management of all appointment records. MedAccess is designed to enhance the healthcare experience by simplifying appointment scheduling and improving the flow of medical information. </p>
+    <div class="flex">
+     <h1 class="text-2xl md:text-4xl text-bold font-serif text-teal-400 mt-10" >WeatherVue</h1>
+     <button class="mt-10 rounded-xl text-xl font-bold font-mono px-3 py-2 ml-6 border-2 border-teal-400 hover:bg-teal-400" onclick="WeatherVue()">GitHub</button>
+
+    </div>
+     <p class="text-lg md:text-xl text-bold font-mono mt-4">A weather application built using the OpenWeatherMap API that provides users with real-time weather updates. The app allows users to view weather forecasts for any location by simply entering a city name. WeatherVue offers a clean, user-friendly interface that displays key information such as temperature, humidity, wind speed, and weather conditions. It’s designed to help users stay informed about the weather and plan their day accordingly, with real-time data fetched from a reliable source.</p>
+    </div>
+<div class="flex flex-col h-full w-1/2 float-right" id="pro-img">
+    <img src="/assets/visionflow.png" alt="VisionFlow" class="mt-10 rounded-xl">
+    <img src="/assets/medaccess.png" alt="VisionFlow" class="mt-24 rounded-xl">
+    <img src="/assets/weathervue.png" alt="VisionFlow" class="mt-32 rounded-xl">    
+</div> -->
+<div class="row flex md:flex-row flex-col w-full h-1/3 ">
+<div class="img md:h-full md:w-1/2 h-1/2 w-full flex items-center justify-center ">
+  <img src="/assets/visionflow.png" alt="VisionFlow" class="mt-4 mb-10 md:mt-16 rounded-xl h-full w-full md:h-5/6 md:w-3/4">
+</div>
+<div class="txt md:h-full md:w-1/2 w-full h-1/2 flex flex-col ">
+  <div class="header flex">
+   <h1 class="text-2xl md:text-4xl text-bold font-serif text-teal-400">VisionFlow</h1>
+   <button class="rounded-xl text-md md:text-xl font-bold font-mono px-2 py-1 md:px-3 md:py-2 ml-6 border-2 border-teal-400 hover:bg-teal-400" onclick="VisionFlow()">GitHub</button>
+  </div>
+  <p class=" text-md md:text-xl text-bold font-mono mt-4">VisionFlow is a productivity website designed to help users stay organized, set goals, and manage time effectively. With a clean interface and tools for task management, goal tracking, and reminders, it empowers users to stay focused and achieve more. Whether managing daily tasks or long-term projects, VisionFlow simplifies goal-setting and visualizes progress to boost productivity.</p>
+  </div>
+</div>
+
+<div class="row flex w-full h-1/3 md:flex-row flex-col ">
+  
+  <div class="img md:h-full md:w-1/2 h-1/2 w-full flex items-center justify-center ">
+    <img src="/assets/medaccess.png" alt="VisionFlow" class=" mt-10 md:mt-16 rounded-xl h-full w-full md:h-5/6 md:w-3/4">
+</div>
+<div class="txt md:h-full md:w-1/2 flex flex-col w-full h-1/2">
+  <div class="header flex">
+    <h1 class="text-2xl md:text-4xl text-bold font-serif text-teal-400 mt-10">MedAccess</h1>
+    <button class="mt-10 rounded-xl text-md  md:text-xl font-bold font-mono px-2 py-1  md:px-3 md:py-2 ml-6 border-2 border-teal-400 hover:bg-teal-400" onclick="MedAccess()">GitHub</button>
+  </div>
+  <p class="text-md md:text-xl text-bold font-mono mt-4">MedAccess is a healthcare appointment system built with Node.js, Express, EJS, and MySQL. It enables patients to book appointments, view past records, and manage bookings securely. Doctors can log in to access patient details, while an admin portal centralizes appointment management. MedAccess streamlines scheduling and enhances medical information flow for a better healthcare experience.</p>
+</div>
+</div>
+
+<div class="row flex w-full h-1/3 md:flex-row flex-col">
+<div class="img md:h-full md:w-1/2 h-1/2 w-full flex items-center justify-center">
+  <img src="assets/weathervue.png" alt="VisionFlow" class="mt-10 md:mt-16 rounded-xl h-full w-full md:h-5/6 md:w-3/4">   
+</div>
+<div class="txt flex flex-col md:h-full md:w-1/2 w-full h-1/2">
+  <div class="header flex">
+    <h1 class="text-2xl md:text-4xl text-bold font-serif text-teal-400 mt-10" >WeatherVue</h1>
+    <button class="mt-10 rounded-xl text-md md:text-xl font-bold font-mono px-2 py-1 md:px-3 md:py-2 ml-6 border-2 border-teal-400 hover:bg-teal-400" onclick="WeatherVue()">GitHub</button>
+  </div>
+  <p class="text-md md:text-xl text-bold font-mono mt-4">WeatherVue is a real-time weather app powered by the OpenWeatherMap API. Users can view forecasts for any location by entering a city name. With a clean, user-friendly interface, it displays key details like temperature, humidity, wind speed, and conditions, helping users plan their day with accurate, reliable updates.</p>
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+</section>
+
+<section id="contact" class="section h-screen p-20 dark:bg-black dark:text-white">
+  <div class="radial-bg"></div>
+  <h1 class="text-3xl md:text-5xl font-serif font-bold dark:text-teal-400">Contact Me</h1>
+  <p class="text-lg md:text-2xl font-mono mt-6">
+    Get in touch with me to discuss ideas, collaborations, or opportunities. I'd love to hear from you!
+  </p>
+
+  <form
+    action="https://formsubmit.co/chaitanyabehlforwork@gmail.com"
+    method="post"
+    class="w-full sm:w-11/12 md:w-4/5 lg:w-2/3 xl:w-1/2 mt-6 md:mt-8 bg-slate-200 dark:bg-slate-900 p-6 px-6 sm:px-8 md:px-10 rounded-xl"
+  >
+    <label for="email" class="text-xl md:text-3xl font-serif font-bold">Your Email:</label>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      placeholder="eg chaitanyabehlforwork@gmail.com"
+      class="border-teal-500 border-2 bg-slate-200 dark:bg-slate-900 rounded-xl p-3 w-full"
+      required
+    /><br /><br />
+
+    <label for="message" class="text-xl md:text-3xl font-serif font-bold">Message:</label>
+    <textarea
+      name="message"
+      id="message"
+      required
+      placeholder="Type a message for eg. We love your work and love to collaborate"
+      class="border-2 border-teal-400 bg-slate-200 dark:bg-slate-900 w-full p-4 rounded-xl h-52"
+    ></textarea
+    ><br /><br />
+
+    <button
+      type="submit"
+      class="bg-teal-400 rounded-xl px-4 py-1 md:px-8 md:py-2 text-lg md:text-xl font-bold"
+    >
+      Submit
+    </button>
+  </form>
+</section>
+
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+function createSplash(section, color) {
+const splash = document.createElement('div');
+splash.classList.add('radial-bg');
+splash.style.background = color;
+section.appendChild(splash);
+return splash;
+}
+
+
+
+const sections = document.querySelectorAll("section");
+
+// Define colors for each section's radial splash
+const colors = ['rgba(255, 99, 132, 0.7)','rgba(54, 162, 235, 0.7)','rgba(255, 206, 86, 0.7)','rgba(255, 99, 132, 0.7)'];
+
+sections.forEach((section, index) => {
+const splash = createSplash(section, colors[index]);
+
+// Animate the splash when scrolling to the section
+gsap.to(splash, {
+  scale: 3,
+  opacity: 0.3,
+  duration: 2,
+  scrollTrigger: {
+    trigger: section,
+    start: 'top center',
+    end: 'bottom center',
+    scrub: true,
+  },
+});
+});
+
+const rippleContainer = document.getElementById('home');
+const col = ['rgba(255, 0, 150, 0.5)', 'rgba(0, 255, 255, 0.5)', 'rgba(255, 255, 0, 0.5)'];
+
+document.addEventListener('mousemove', (e) => {
+  // Create a ripple element
+  const ripple = document.createElement('div');
+  ripple.classList.add('ripple');
+  rippleContainer.appendChild(ripple);
+
+  // Set the position of the ripple
+  ripple.style.left = `${e.clientX}px`;
+  ripple.style.top = `${e.clientY}px`;
+  ripple.style.background = colors[Math.floor(Math.random() * col.length)];
+
+  // Animate the ripple using GSAP
+  gsap.to(ripple, {
+    scale: 10, // Ripple expands
+    opacity: 0, // Ripple fades out
+    duration: 1, // Animation duration
+    onComplete: () => {
+      ripple.remove(); // Remove the element after animation
+    }
+  });
+});
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+<script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</body>
+</html>
